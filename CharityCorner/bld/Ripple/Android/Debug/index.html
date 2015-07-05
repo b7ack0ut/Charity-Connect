@@ -1,0 +1,444 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>CharityCorner</title>
+
+    <!-- CharityCorner references -->
+    <link href="css/index.css" rel="stylesheet" />
+    <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+</head>
+<body>
+    <div id="pageMain" data-role="page">
+        <div data-role="header" data-position="fixed">
+            <h4>Charity Connect <a href="#pageAbout" data-role="button" data-icon="info" data-iconpos="notext" class="ui-btn-right">Help</a></h4>
+        </div>
+        <div data-role="content">
+            <div>
+                <div class="ui-corner-all">
+                    <div class="ui-bar ui-bar-a">
+                        <h3>Welcome to CharityConnect!</h3>
+                    </div>
+                    <div class="ui-body ui-body-a" style="text-align:center;">
+                        <!--Please select one of the options below.<br />-->
+                        <img src="images/charityconnect _header.png" alt="Charity Connect" />
+                    </div>
+                </div>
+            </div>
+            <a href="#pageSearch" data-role="button">Search for charities</a>
+            <a href="#pageMap" data-role="button">View Map</a>
+            <a href="#pageFav" data-role="button">My Favourites <span class="ui-li-count" id="favCount">0</span></a>
+            <a href="#pageProfile" data-role="button">My Profile</a>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <h4>SilentHackers ©</h4>
+        </div>
+    </div>
+
+    <div id="pageMap" data-role="page">
+        <div data-role="header" data-position="fixed">
+            <h4><a href="#pageMain" data-icon="home" data-iconpos="notext" data-role="button" class="ui-btn-left">Back</a>Charity Connect</h4>
+        </div>
+        <div id="map" style="width:100%;height:1000px;"></div>
+        <div data-role="footer" data-position="fixed">
+            <h4>SilentHackers ©</h4>
+        </div>
+    </div>
+
+    <div id="pageProfile" data-role="page">
+        <div data-role="header" data-position="fixed">
+            <h4><a href="#pageMain" data-icon="home" data-iconpos="notext" data-role="button" class="ui-btn-left">Back</a>Charity Connect</h4>
+        </div>
+        <div data-role="content">
+            <fieldset data-role="controlgroup" data-mini="true">
+                <div class="ui-corner-all">
+                    <div class="ui-bar ui-bar-a">
+                        <h3>I am</h3>
+                    </div>
+                    <div class="ui-body ui-body-a">
+                        <b><input type="number" max="80" min="18" /> years old.</b><br /><br />
+                        <input type="checkbox" data-role="flipswitch" data-on-text="male" data-off-text="female" checked/> 
+                        <br /><br />
+                        <b>I am interested in:</b>
+                        <div class="ui-body ui-body-a">
+                            <b>Any cause</b>
+                            <input class="any" type="checkbox" data-role="flipswitch" data-on-text="Yes" data-off-text="No" checked /><br />
+                            <fieldset data-role="controlgroup" data-mini="true" style="display:none;">
+                                <label><input type='checkbox' value='1' />Poverty/sickness/needs of the aged</label>
+                                <label><input type='checkbox' value='2' />Advancement of education</label>
+                                <label><input type='checkbox' value='3' />Advancement of religion</label>
+                                <label><input type='checkbox' value='4' />Provision of child care services</label>
+                                <label><input type='checkbox' value='5' />Animal Protection</label>
+                                <label><input type='checkbox' value='6' />Culture and arts</label>
+                                <label><input type='checkbox' value='7' />Economic  social and community development</label>
+                                <label><input type='checkbox' value='8' />Emergency Relief</label>
+                                <label><input type='checkbox' value='9' />Employment and training</label>
+                                <label><input type='checkbox' value='10' />Environmental activities</label>
+                                <label><input type='checkbox' value='11' />Higher education</label>
+                                <label><input type='checkbox' value='12' />Hospital services and rehabilitation activities</label>
+                                <label><input type='checkbox' value='13' />Housing activities</label>
+                                <label><input type='checkbox' value='14' />Income support and maintenance</label>
+                                <label><input type='checkbox' value='15' />International activities</label>
+                                <label><input type='checkbox' value='16' />Law and legal services</label>
+                                <label><input type='checkbox' value='17' />Mental health and crisis intervention</label>
+                                <label><input type='checkbox' value='18' />Political activities</label>
+                                <label><input type='checkbox' value='19' />Primary and secondary education</label>
+                                <label><input type='checkbox' value='20' />Religious activities</label>
+                                <label><input type='checkbox' value='21' />Research</label>
+                                <label><input type='checkbox' value='22' />Social services</label>
+                                <label><input type='checkbox' value='23' />Sports</label>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <a href="#pageMain" data-role="button">Save</a>
+                </div>
+            </fieldset>
+        </div>
+                        <div data-role="footer" data-position="fixed">
+                            <h4>SilentHackers ©</h4>
+                        </div>
+                    </div>
+
+                    <div id="pageSearch" data-role="page">
+                        <div data-role="header" data-position="fixed">
+                            <h4><a href="#pageMain" data-icon="home" data-iconpos="notext" data-role="button" class="ui-btn-left">Back</a>Charity Connect</h4>
+                        </div>
+                        <div data-role="content">
+                            <fieldset data-role="controlgroup" data-mini="true">
+                                <div class="ui-corner-all">
+                                    <div class="ui-bar ui-bar-a">
+                                        <h3>Active in:</h3>
+                                    </div>
+                                    <div class="ui-body ui-body-a">
+                                        <b>Any state</b>
+                                        <input class="any" type="checkbox" data-role="flipswitch" data-on-text="Yes" data-off-text="No" checked /><br />
+                                        <!--<hr />-->
+                                        <fieldset data-role="controlgroup" data-mini="true" style="display:none;">
+                                            <table style="width:100%">
+                                                <tr>
+                                                    <td>NSW</td>
+                                                    <td><input type="checkbox" name="chkNsw" value="nsw" data-role="flipswitch" data-on-text="Yes" data-off-text="No" /></td>
+                                                    <td>ACT</td>
+                                                    <td><input type="checkbox" name="chkNsw" value="act" data-role="flipswitch" data-on-text="Yes" data-off-text="No" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>NT</td>
+                                                    <td><input type="checkbox" name="chkNsw" value="nt" data-role="flipswitch" data-on-text="Yes" data-off-text="No" /></td>
+                                                    <td>QLD</td>
+                                                    <td><input type="checkbox" name="chkNsw" value="qld" data-role="flipswitch" data-on-text="Yes" data-off-text="No" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>SA</td>
+                                                    <td><input type="checkbox" name="chkNsw" value="sa" data-role="flipswitch" data-on-text="Yes" data-off-text="No" /></td>
+                                                    <td>TAS</td>
+                                                    <td><input type="checkbox" name="chkNsw" value="tas" data-role="flipswitch" data-on-text="Yes" data-off-text="No" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>VIC</td>
+                                                    <td><input type="checkbox" name="chkNsw" value="vic" data-role="flipswitch" data-on-text="Yes" data-off-text="No" /></td>
+                                                    <td>WA</td>
+                                                    <td><input type="checkbox" name="chkNsw" value="wa" data-role="flipswitch" data-on-text="Yes" data-off-text="No" /></td>
+                                                </tr>
+                                            </table>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <br />
+                                <div>
+                                    <div class="ui-bar ui-bar-a">
+                                        <h3>Working for:</h3>
+                                    </div>
+                                    <div class="ui-body ui-body-a">
+                                        <b>Any cause</b>
+                                        <input class="any" type="checkbox" data-role="flipswitch" data-on-text="Yes" data-off-text="No" checked /><br />
+                                        <fieldset data-role="controlgroup" data-mini="true" style="display:none;">
+                                            <label><input type='checkbox' value='1' />Poverty/sickness/needs of the aged</label>
+                                            <label><input type='checkbox' value='2' />Advancement of education</label>
+                                            <label><input type='checkbox' value='3' />Advancement of religion</label>
+                                            <label><input type='checkbox' value='4' />Provision of child care services</label>
+                                            <label><input type='checkbox' value='5' />Animal Protection</label>
+                                            <label><input type='checkbox' value='6' />Culture and arts</label>
+                                            <label><input type='checkbox' value='7' />Economic  social and community development</label>
+                                            <label><input type='checkbox' value='8' />Emergency Relief</label>
+                                            <label><input type='checkbox' value='9' />Employment and training</label>
+                                            <label><input type='checkbox' value='10' />Environmental activities</label>
+                                            <label><input type='checkbox' value='11' />Higher education</label>
+                                            <label><input type='checkbox' value='12' />Hospital services and rehabilitation activities</label>
+                                            <label><input type='checkbox' value='13' />Housing activities</label>
+                                            <label><input type='checkbox' value='14' />Income support and maintenance</label>
+                                            <label><input type='checkbox' value='15' />International activities</label>
+                                            <label><input type='checkbox' value='16' />Law and legal services</label>
+                                            <label><input type='checkbox' value='17' />Mental health and crisis intervention</label>
+                                            <label><input type='checkbox' value='18' />Political activities</label>
+                                            <label><input type='checkbox' value='19' />Primary and secondary education</label>
+                                            <label><input type='checkbox' value='20' />Religious activities</label>
+                                            <label><input type='checkbox' value='21' />Research</label>
+                                            <label><input type='checkbox' value='22' />Social services</label>
+                                            <label><input type='checkbox' value='23' />Sports</label>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <a href="#pageItems" data-role="button">Find</a>
+                        </div>
+                        <div data-role="footer" data-position="fixed">
+                            <h4>SilentHackers ©</h4>
+                        </div>
+                    </div>
+
+    <div id="pageItems" data-role="page">
+        <div data-role="header" data-position="fixed">
+            <h4><a href="#pageMain" data-icon="home" data-iconpos="notext" data-role="button" class="ui-btn-left">Back</a> Charity Connect</h4>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview" data-filter="true">
+                <li><b>Integricare</b> <p>11000073870</p></li>
+                <li><b>Australian Missionary Tidings</b> <p>11000761571</p></li>
+                <li><b>The Greek Orthodox Church & Community Of The "Holy Apostles" City Of Newcastle & District Limited</b> <p>11001233790</p></li>
+                <li><b>Wangarang Industries Limited</b> <p>11001241005</p></li>
+                <li><b>Subud Australia</b> <p>11001350867</p></li>
+                <li><b>Pacific Hills Christian Education Limited</b> <p>11001832828</p></li>
+                <li><b>Burrum Benevolent Society Inc</b> <p>11002058127</p></li>
+                <li><b>Lasercraft Australia Ltd</b> <p>11003362481</p></li>
+                <li><b>Nurses Memorial Centre</b> <p>11004285956</p></li>
+                <li><b>Austin Medical Research Foundation</b> <p>11004857827</p></li>
+                <li><b>Buddha Sasana Association Of Australia Incorporated</b> <p>11005353218</p></li>
+                <li><b>Uca - Yarawalla</b> <p>11005369169</p></li>
+                <li><b>Odyssey House Victoria</b> <p>11005583960</p></li>
+                <li><b>The Dla Foundation Pty Ltd</b> <p>11005898251</p></li>
+                <li><b>St George Family Support Services Inc.</b> <p>11005906054</p></li>
+                <li><b>Australian Institute Of Company Directors</b> <p>11008484197</p></li>
+                <li><b>Victorian Brumby Association Inc</b> <p>11010805927</p></li>
+                <li><b>Sydney Sri Ayyappa Swami Centre Incorporated</b> <p>11010856725</p></li>
+                <li><b>Denzil Don Kindergarten Inc</b> <p>11019639609</p></li>
+                <li><b>2Lm Childrens Christmas Appeal </b> <p>11019967071</p></li>
+                <li><b>Yagoona Baptist Church</b> <p>11021947936</p></li>
+                <li><b>Lancefield Kindergarten Inc</b> <p>11024646824</p></li>
+                <li><b>Qcwa Branch Macalister</b> <p>11027915897</p></li>
+                <li><b>The Trustee For Bbc Education Building Fund</b> <p>11029187646</p></li>
+                <li><b>The Trustee For The Balmain Parish St Johns - Acpt (1023)</b> <p>11031563484</p></li>
+                <li><b>Russian Ethnic Community Council Of NSW Inc</b> <p>11032433089</p></li>
+                <li><b>The Trustee For The Foundation For Imaging Research</b> <p>11036231838</p></li>
+                <li><b>The Bunker Cartoon Gallery Inc</b> <p>11036390091</p></li>
+                <li><b>Mitchell House Inc</b> <p>11037728335</p></li>
+                <li><b>Medi Aid Centre Foundation Ltd</b> <p>11038579170</p></li>
+                <li><b>The Corporation Of The Synod Of The Diocese Of Brisbane</b> <p>11043348720</p></li>
+                <li><b>Great Lakes Meals On Wheels </b> <p>11044356392</p></li>
+                <li><b>The Family And Disability Society Of Wa Incorporated</b> <p>11045845426</p></li>
+                <li><b>Minlaton Hostel For The Aged Inc</b> <p>11046688404</p></li>
+                <li><b>Atwell Community Church</b> <p>11050453769</p></li>
+                <li><b>Kybybolite Protection Groupincorporated</b> <p>11050810640</p></li>
+                <li><b>Warradargee Volunteer Bush Fire Brigade</b> <p>11051212745</p></li>
+                <li><b>St Andrews Lutheran Church Corowa</b> <p>11056475105</p></li>
+                <li><b>Community Housing Limited</b> <p>11062802797</p></li>
+                <li><b>Unyball Pty Ltd</b> <p>11063402559</p></li>
+                <li><b>The Trustee For Community Foundation For Albury Wodonga Region</b> <p>11064494169</p></li>
+                <li><b>Dirranbandi Arts Council Inc</b> <p>11064780067</p></li>
+                <li><b>The Corndale Hall Inc.</b> <p>11066289464</p></li>
+                <li><b>Anglican Deaconess Ministries Limited</b> <p>11069533482</p></li>
+                <li><b>St Andrews Anglican Church Lane Cove</b> <p>11071850028</p></li>
+                <li><b>Dolphin Common Equity Rental Housing Co-Operative Ltd</b> <p>11076178673</p></li>
+                <li><b>The Parents & Friends Association Of Kincoppal Rose Bay</b> <p>11078672755</p></li>
+                <li><b>Hunter Valley Brumby Association</b> <p>11079447763</p></li>
+                <li><b>Little Company Of Mary Health Care Limited</b> <p>11079815697</p></li>
+                <li><b>Imam Husain Limited</b> <p>11080436433</p></li>
+                <li><b>Uca - Grahamstown Congregations</b> <p>11081630729</p></li>
+                <li><b>Church Of Christ Cairns</b> <p>11081815889</p></li>
+                <li><b>Church Of Christ Belmore</b> <p>11082241761</p></li>
+                <li><b>Volunteer Fire Brigades Victoria Inc</b> <p>11083080403</p></li>
+                <li><b>Frontiers Australia</b> <p>11083115913</p></li>
+                <li><b>Parish Of The Nativity</b> <p>11083216579</p></li>
+                <li><b>Anglican Parish Of Swanbourne-Mount Claremont</b> <p>11083428729</p></li>
+                <li><b>St Vincent's Foundation Pty Limited</b> <p>11083730778</p></li>
+                <li><b>Perth Diocesan Trustees</b> <p>11086103323</p></li>
+                <li><b>The Trustee For Australian Research Theology Foundation</b> <p>11088061023</p></li>
+                <li><b>Living Valley Springs Limited</b> <p>11088359577</p></li>
+                <li><b>Friends Of The Helmeted Honeyeater Inc</b> <p>11091816085</p></li>
+                <li><b>Nyahwest Uniting Church Council</b> <p>11092150879</p></li>
+                <li><b>St John's Community Care Brisbane Northside Limited</b> <p>11094142006</p></li>
+                <li><b>Christian City Church Joondalup Incorporated</b> <p>11098249758</p></li>
+                <li><b>Toora Women Incorporated</b> <p>11099754393</p></li>
+                <li><b>The Australian Childrens Music Foundation Limited</b> <p>11101785219</p></li>
+                <li><b>Boystown</b> <p>11102379386</p></li>
+                <li><b>Musicals Australia Ltd</b> <p>11103755139</p></li>
+                <li><b>The Australian Voices Ensemble Limited</b> <p>11104705642</p></li>
+                <li><b>Christ Is All Ltd</b> <p>11105002453</p></li>
+                <li><b>Clermont Community Housing And Other Services Inc</b> <p>11106424769</p></li>
+                <li><b>Christ Church Mortdale</b> <p>11107436811</p></li>
+                <li><b>Carrington Centennial Care Limited</b> <p>11109853278</p></li>
+                <li><b>Chinese Students Association Incorporated</b> <p>11112455786</p></li>
+                <li><b>The Australian Chinese Medical Associa Tion (Sa) Incorporated</b> <p>11112491556</p></li>
+                <li><b>Edithburgh Museum Inc</b> <p>11114063043</p></li>
+                <li><b>Australian Business And Community Network Limited</b> <p>11114688541</p></li>
+                <li><b>Church Of The Nazarene Inala Inc</b> <p>11115147659</p></li>
+                <li><b>Uniting Church Australia - Jannali</b> <p>11116159701</p></li>
+                <li><b>Access Aid International Ltd.</b> <p>11116169647</p></li>
+                <li><b>Aboriginal & Torres Strait Islander Legal Service (Qld) Ltd</b> <p>11116314562</p></li>
+                <li><b>Hope Foundation Limited</b> <p>11117886432</p></li>
+                <li><b>Christian Surfers International</b> <p>11123738223</p></li>
+                <li><b>Youth Futures Wa Inc</b> <p>11124211565</p></li>
+                <li><b>The Royal Societies Of Australia</b> <p>11126868586</p></li>
+                <li><b>The Baptist Union Of Queensland - Cooktown</b> <p>11127864935</p></li>
+                <li><b>Australian Community Philanthropy Ltd</b> <p>11128866419</p></li>
+                <li><b>Nafsika Stamoulis Hellenic Museum Limited</b> <p>11129013305</p></li>
+                <li><b>Doxa Social Club Incorporated</b> <p>11129790467</p></li>
+                <li><b>Hands On Learning Australia</b> <p>11130433288</p></li>
+                <li><b>MAS National Limited</b> <p>11131047268</p></li>
+                <li><b>St Stephens Anglican Church Greythorn</b> <p>11131264926</p></li>
+                <li><b>Kalamunda Church Of Christ Incorporated</b> <p>11132125120</p></li>
+                <li><b>Riverland Support Group For The Disabled Inc</b> <p>11134856132</p></li>
+                <li><b>Financial Basics Community Foundation Limited</b> <p>11137037677</p></li>
+                <li><b>Military & Hospitaller Order Of St Lazarus Of Jerusalem Inc. Sa Branch</b> <p>11139840947</p></li>
+                <li><b>World Maitreya Karuna Foundation Australia (Wmkfa)</b> <p>11139996651</p></li>
+                <li><b>Australian Academy Of Sport Limited</b> <p>11140054468</p></li>
+                <li><b>Anba Abraam Association Incorporated</b> <p>11140735862</p></li>
+                <li><b>Bundoora Extended Care Centre Preston Auxiliary</b> <p>11141476364</p></li>
+                <li><b>Chill Foundation Limited</b> <p>11141704449</p></li>
+                <li><b>Short Black Opera Company Pty Ltd</b> <p>11141727577</p></li>
+                <li><b>S4 Global Church Limited</b> <p>11142051054</p></li>
+                <li><b>Biripi Aboriginal Corporation Medical Centre</b> <p>11142285716</p></li>
+                <li><b>Play For Life Ltd</b> <p>11144901093</p></li>
+                <li><b>Plumbing Industry Climate Action Centre (Picac) Ltd</b> <p>11146359104</p></li>
+                <li><b>Carbon Market Institute Limited</b> <p>11146804668</p></li>
+                <li><b>Victoria State Emergency Service Broadmeadows Unit</b> <p>11147897218</p></li>
+                <li><b>Our Big Kitchen Ltd</b> <p>11149226568</p></li>
+                <li><b>Australians For Australia Limited</b> <p>11150693851</p></li>
+                <li><b>The Trustee For Wilson HTM Foundation</b> <p>11151440423</p></li>
+                <li><b>Outer Urban Projects Limited</b> <p>11154257851</p></li>
+                <li><b>Orthopaedic Research Institute Of Queensland Limited</b> <p>11154806658</p></li>
+                <li><b>Visability Limited</b> <p>11157291960</p></li>
+                <li><b>The Corporation Of The Synod Of The Diocese Of Brisbane</b> <p>11157982091</p></li>
+                <li><b>Spinal Research Institute Limited</b> <p>11162207169</p></li>
+                <li><b>Fellowship Of Aust Writers West Aust Section (Inc)</b> <p>11163101750</p></li>
+                <li><b>Quantum Ministries Limited</b> <p>11164536378</p></li>
+                <li><b>Baptist Church Altona</b> <p>11165171840</p></li>
+                <li><b>The Legacy Foundation Of Victoria Inc</b> <p>11165256436</p></li>
+                <li><b>The Trustee For The Mallacoota Rsl Sub Branch Welfare Patriotic Fund W457</b> <p>11165869061</p></li>
+                <li><b>Mandurah Surf Lifesaving Club (Inc)</b> <p>11166136776</p></li>
+                <li><b>Olivia Newton-John Cancer Research Institute</b> <p>11167192752</p></li>
+                <li><b>Frankston Christian Community Centre Inc</b> <p>11170013113</p></li>
+                <li><b>St Johns Lutheran Church Milguy</b> <p>11176150693</p></li>
+                <li><b>Shoalhaven Country Line Dancers Inc</b> <p>11177837248</p></li>
+                <li><b>Tinbeerwah Rural Fire Brigade</b> <p>11179849169</p></li>
+                <li><b>Kambalda Volunteer Fire Brigade</b> <p>11188231822</p></li>
+                <li><b>St Ambrose Anglican Parish - Gilgandra</b> <p>11189492560</p></li>
+                <li><b>St Christophers Anglican Church East Bentleigh</b> <p>11192522543</p></li>
+                <li><b>Gateway Education Centre Incorporated</b> <p>11198025596</p></li>
+                <li><b>University Of Southern Queensland Student Guild</b> <p>11199275853</p></li>
+                <li><b>St Andrew's Anglican Church Wahroonga</b> <p>11209481513</p></li>
+                <li><b>Hanmaum Korean Presbyterian Church Inc</b> <p>11210172815</p></li>
+                <li><b>Hampton Baptist Community Church</b> <p>11210566437</p></li>
+                <li><b>Association Of The Franciscan Ofm Slovene Mission</b> <p>11213238190</p></li>
+                <li><b>Intellectual Disability Rights Service Inc</b> <p>11216371524</p></li>
+                <li><b>The Compassionate Friends Act And Queanbeyan Incorporated</b> <p>11216875673</p></li>
+                <li><b>Crescent Head Community Hall Committee</b> <p>11226221388</p></li>
+                <li><b>The Trustee For Documentary Australia Foundation</b> <p>11227328793</p></li>
+                <li><b>The Corporation Of The Diocesan Synod Of North Queensland</b> <p>11228305254</p></li>
+                <li><b>Maroochydore Surf Lifesaving Club Inc</b> <p>11229540191</p></li>
+                <li><b>The Trustee For The Lawrence Bequest Trust</b> <p>11232209394</p></li>
+                <li><b>Deloraine House Inc</b> <p>11233136100</p></li>
+                <li><b>Belfield RSL sub-Branch (RSL NSW)</b> <p>11236149710</p></li>
+                <li><b>St Johns Evangelical Lutheran Church Burra</b> <p>11236340422</p></li>
+                <li><b>Hawthorn Community Education Centre Inc</b> <p>11238399814</p></li>
+                <li><b>Moreland Community Legal Centre Inc</b> <p>11239506139</p></li>
+                <li><b>Riding For The Disabled Association (NSW) The Moss Vale Centre</b> <p>11240170997</p></li>
+                <li><b>Combined Pensioners & Superannuants Association Of NSW Incorporated</b> <p>11244559772</p></li>
+                <li><b>C A Camps Trust</b> <p>11246123715</p></li>
+                <li><b>Bonnet Bay P&C Association</b> <p>11248418710</p></li>
+                <li><b>RETURNED AND SERVICES LEAGUE OF AUSTRALIA INGLEWOOD AND BRIDGEWATER</b> <p>11252634894</p></li>
+                <li><b>Blayney Volunteer Meals On Wheels Assocociation Incorporated</b> <p>11254431269</p></li>
+                <li><b>The Cyrene Centre</b> <p>11259653598</p></li>
+                <li><b>Victoria State Emergency Service Leongatha Unit</b> <p>11259697010</p></li>
+                <li><b>Box Hill Citizens Advice Bureau</b> <p>11261294621</p></li>
+                <li><b>The Corporation Of The Synod Of The Diocese Of Brisbane</b> <p>11263154159</p></li>
+                <li><b>Presbyterian Church Of Australia Inthe State Of New South Wales Parishguya Wandsworth </b> <p>11267572742</p></li>
+                <li><b>University Of Melbourne Graduate Student Association Inc</b> <p>11274192974</p></li>
+                <li><b>Uni Camp For Kids Incorporated</b> <p>11274679098</p></li>
+                <li><b>Uca - Sherwood</b> <p>11274684817</p></li>
+                <li><b>Chinese Presbyterian Church Incorporated</b> <p>11277507106</p></li>
+                <li><b>The Trustee For Estate Of Cecilia Button</b> <p>11278363724</p></li>
+                <li><b>The Uniting Church Ministers Benevolent Fund</b> <p>11283689792</p></li>
+                <li><b>The Trustee For Russell Mckimmin Charitable Trust</b> <p>11285126970</p></li>
+                <li><b>Corrigin Church Of Christ Inc</b> <p>11286533983</p></li>
+                <li><b>Yorke Youth Services Inc</b> <p>11289703125</p></li>
+                <li><b>Grafton South Congregation of Jehovah's Witnesses</b> <p>11291711287</p></li>
+                <li><b>Friends Of Hawthorn Tram Depot Inc</b> <p>11293508607</p></li>
+                <li><b>St Kilda Mums</b> <p>11296752873</p></li>
+                <li><b>The Roman Catholic Archbishop Of Perth-Beaconsfield Parish</b> <p>11299736811</p></li>
+                <li><b>St Vincent De Paul Society (Nt) Inc</b> <p>11300386527</p></li>
+                <li><b>The Jfd Foundation Ballarat Inc</b> <p>11300954672</p></li>
+                <li><b>Wide Bay Women's Health Centre Inc.</b> <p>11301450257</p></li>
+                <li><b>Victoria's Heritage Restoration Fund Inc</b> <p>11301552846</p></li>
+                <li><b>Indonesian Christian Family Church</b> <p>11302872347</p></li>
+                <li><b>Hamer-Tribe Trust</b> <p>11304683810</p></li>
+                <li><b>Goomalling Mens Shed And Prostate Group Incorporated</b> <p>11307521909</p></li>
+                <li><b>Sandy Bay Senior Citizens Club Inc </b> <p>11308202509</p></li>
+                <li><b>The Trustee For The Thomas Memorial Fund</b> <p>11311421406</p></li>
+                <li><b>Blacktown Church Of Christ</b> <p>11311764284</p></li>
+                <li><b>South East Community Legal Service Inc</b> <p>11320043645</p></li>
+                <li><b>The Trustee For The Belmore With Mccallums Hill & Clempton Park Parish - Acpt (1030)</b> <p>11321984065</p></li>
+                <li><b>Vivian Genevieve Weaver Library Fund Trust</b> <p>11325724500</p></li>
+                <li><b>Mental Health Association NSW Inc.</b> <p>11326005224</p></li>
+                <li><b>The Gwen & Edna Jones Foundation</b> <p>11328366859</p></li>
+                <li><b>Moranbah High P&C Association</b> <p>11329228089</p></li>
+                <li><b>Christ Lutheran Church Wudinna</b> <p>11330868226</p></li>
+                <li><b>Pilgrims Of Zion Evangelical Lutheran Church Bookpurnong Inc</b> <p>11332089079</p></li>
+                <li><b>Leading From Within (Greater Shepparton)</b> <p>11338237039</p></li>
+                <li><b>Uca - Winchelsea</b> <p>11339370677</p></li>
+                <li><b>The Trustee For The Dairy Goat Society Of Australia Research Foundation</b> <p>11340160573</p></li>
+                <li><b>Dalrymple Heights Rural Firebrigade</b> <p>11342769356</p></li>
+                <li><b>Harrietville Television Committee Inc</b> <p>11342844238</p></li>
+                <li><b>The Goldfields Indigenous Housing Organ Inc.</b> <p>11345673368</p></li>
+                <li><b>Kashrus Australasia Incorporated</b> <p>11346132066</p></li>
+                <li><b>Ecumenical Social Justice Group / Western Suburbs Inc</b> <p>11346174035</p></li>
+                <li><b>Riding For The Disabled Association Of Western Australia Peel Group Incorporated</b> <p>11349709415</p></li>
+            </ul>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <h4>SilentHackers ©</h4>
+        </div>
+    </div>
+                    <div id="pageAbout" data-role="page">
+                        <div data-role="header" data-position="fixed">
+                            <h4><a href="#pageMain" data-icon="home" data-iconpos="notext" data-role="button" class="ui-btn-left">Back</a> Charity Connect</h4>
+                        </div>
+                        <div data-role="content">
+                            <div class="ui-corner-all">
+                                <div class="ui-bar ui-bar-a">
+                                    <h3>Contributors:</h3>
+                                </div>
+                                <div class="ui-body ui-body-a">
+                                    <ul data-role="listview">
+                                        <li>Arun Reddy</li>
+                                        <li>Jamil Ispahany</li>
+                                        <li>Shibasis Sengupta</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="ui-corner-all">
+                                <div class="ui-bar ui-bar-a">
+                                    <h3>About CharityConnect</h3>
+                                </div>
+                                <div class="ui-body ui-body-a">
+                                    Built during GovHack2015.....<br /><br />
+                                    Please visit our website <a href="http://charityconnect.azurewebsites.net/">http://charityconnect.azurewebsites.net</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-role="footer" data-position="fixed">
+                            <h4>SilentHackers ©</h4>
+                        </div>
+                    </div>
+
+                    <!-- Cordova reference, this is added to your app when it's built. -->
+                    <script src="cordova.js"></script>
+                    <script src="scripts/platformOverrides.js"></script>
+                    <script src="scripts/jquery-1.7.1.min.js"></script>
+                    <script src="scripts/jquery.mobile-1.4.5.min.js"></script>
+                    <script src="scripts/index.js"></script>
+
+</body>
+</html>
